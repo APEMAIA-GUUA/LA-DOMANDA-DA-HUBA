@@ -108,9 +108,13 @@
 
     // 点击“愿意”
     yesBtn.addEventListener("click", () => {
-      // 这里改成你想要的那句
-      msg.textContent = "升职加薪有你的！";
-    });
+  // 浏览器弹出的提示框
+  alert("升职加薪有你的！");
+
+  // 页面下方也同时显示这句话（可要可不要）
+  msg.textContent = "升职加薪有你的！";
+});
+
 
     // 点击“不愿意” -> 愿意按钮无限变大
     noBtn.addEventListener("click", () => {
@@ -123,3 +127,4 @@
   </script>
 </body>
 </html>
+
