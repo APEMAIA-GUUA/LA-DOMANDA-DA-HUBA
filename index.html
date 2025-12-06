@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>胡爸慰问</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffe6f7;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 320px;
+      padding: 32px 24px 28px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: #ffbfd9;
+    }
+
+    .question {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+
+    button {
+      padding: 10px 22px;
+      font-size: 16px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    #yesBtn {
+      background-color: #ff8fb3;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(255,143,179,0.6);
+    }
+
+    #noBtn {
+      background-color: #eeeeee;
+      color: #333333;
+    }
+
+    #msg {
+      margin-top: 8px;
+      font-size: 18px;
+      color: #ff4b6a;
+      min-height: 24px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="avatar"></div>
+
+    <div class="question">你愿意成为我的女儿吗？</div>
+
+    <div class="buttons">
+      <button id="yesBtn">愿意！</button>
+      <button id="noBtn">不愿意</button>
+    </div>
+
+    <div id="msg"></div>
+  </div>
+
+  <!-- 注意：整段脚本要放在 body 里面，并且在元素后面 -->
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn  = document.getElementById("noBtn");
+    const msg    = document.getElementById("msg");
+
+    // 初始大小
+    let yesScale = 1;
+
+    // 点击“愿意”
+    yesBtn.addEventListener("click", () => {
+      msg.textContent = "升职加薪有你的！";
+    });
+
+    // 点击“不愿意”
+    noBtn.addEventListener("click", () => {
+      // 每点一次就变大一点，可以无限大
+      yesScale *= 1.1 ;   // 想更夸张就改成 1.5 或 2
+      yesBtn.style.transform  = "scale(" + yesScale + ")";
+      yesBtn.style.transition = "transform 0.2s ease";
+
+      msg.textContent = "还是更喜欢妈妈吗？";
+    });
+  </script>
+</body>
+</html>
