@@ -19,39 +19,43 @@
       height: 100vh;
     }
 
+    /* 卡片变大 + 自适应手机宽度 */
     .card {
       background: #ffffff;
-      width: 320px;
-      padding: 32px 24px 28px;
-      border-radius: 24px;
+      width: min(420px, 90vw);      /* 最大 420px，最小占 90% 屏幕宽 */
+      padding: 40px 28px 32px;      /* 比之前更宽松一点 */
+      border-radius: 28px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.12);
       text-align: center;
     }
 
+    /* 头像圆圈也放大一点 */
     .avatar {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      margin: 0 auto 24px;
+      margin: 0 auto 28px;
       background: #ffbfd9;
     }
 
+    /* 中间问题文字变大 */
     .question {
-      font-size: 22px;
-      margin-bottom: 24px;
+      font-size: 24px;
+      line-height: 1.6;
+      margin-bottom: 28px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       align-items: center;
     }
 
     button {
-      padding: 10px 22px;
-      font-size: 16px;
+      padding: 12px 26px;
+      font-size: 18px;              /* 按钮文字变大 */
       border: none;
       border-radius: 999px;
       cursor: pointer;
@@ -71,8 +75,8 @@
     }
 
     #msg {
-      margin-top: 8px;
-      font-size: 18px;
+      margin-top: 10px;
+      font-size: 20px;              /* 提示文字也稍微大一点 */
       color: #ff4b6a;
       min-height: 24px;
       line-height: 1.4;
@@ -83,6 +87,7 @@
   <div class="card">
     <div class="avatar"></div>
 
+    <!-- 这里你已经改成“女儿”了，可以按你现在的写法来 -->
     <div class="question">你愿意成为我的女儿吗？</div>
 
     <div class="buttons">
@@ -93,7 +98,6 @@
     <div id="msg"></div>
   </div>
 
-  <!-- 注意：整段脚本要放在 body 里面，并且在元素后面 -->
   <script>
     const yesBtn = document.getElementById("yesBtn");
     const noBtn  = document.getElementById("noBtn");
@@ -104,17 +108,17 @@
 
     // 点击“愿意”
     yesBtn.addEventListener("click", () => {
+      // 这里改成你想要的那句
       msg.textContent = "升职加薪有你的！";
     });
 
-    // 点击“不愿意”
+    // 点击“不愿意” -> 愿意按钮无限变大
     noBtn.addEventListener("click", () => {
-      // 每点一次就变大一点，可以无限大
-      yesScale *= 1.1 ;   // 想更夸张就改成 1.5 或 2
+      yesScale *= 1.3;   // 想更夸张就改成 1.5 或 2
       yesBtn.style.transform  = "scale(" + yesScale + ")";
       yesBtn.style.transition = "transform 0.2s ease";
 
-      msg.textContent = "还是更喜欢妈妈吗？";
+      msg.textContent = "还是更喜欢妈妈吗 ？";
     });
   </script>
 </body>
